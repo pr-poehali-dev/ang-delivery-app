@@ -1,0 +1,33 @@
+{
+  "tests": [
+    {
+      "name": "Register new user",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "action": "register",
+        "phone": "+79001234567",
+        "password": "test123",
+        "role": "client",
+        "name": "Тестовый клиент"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "userId": "number",
+        "role": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get all users",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "users": "array"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
